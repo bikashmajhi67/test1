@@ -1,12 +1,15 @@
 package demo;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class SimpleLogin {
     public static void main(String[] args) {
-        // Default username and password
-        String defaultUsername = "admin";
-        String defaultPassword = "12345";
+        Map<String, String> userMap = new HashMap<>();
+
+        userMap.put("admin", "12345");
+        userMap.put("user1", "1234");
 
         // Scanner to take input
         Scanner sc = new Scanner(System.in);
@@ -18,7 +21,7 @@ public class SimpleLogin {
         String password = sc.nextLine();
 
         // Check login
-        if (username.equals(defaultUsername) && password.equals(defaultPassword)) {
+        if (username.equals("admin") && password.equals(userMap.get("admin"))) {
             System.out.println("✅ Login Successful! Welcome, " + username);
         } else {
             System.out.println("❌ Invalid Username or Password. Try again.");
